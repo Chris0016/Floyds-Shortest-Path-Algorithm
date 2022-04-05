@@ -1,26 +1,26 @@
 public class Main {
 
     public static void main(String[] args) {
-        // Read matrix: File Reader
 
         String basePath = ".\\IO\\";
 
         String inputFile = basePath + "input.txt";
         String outputFile = basePath + "output.txt";
 
-        FileReader io = new FileReader(inputFile, outputFile);
+        ReaderWriter io = new ReaderWriter(inputFile, outputFile);
 
-        int[][] adjMatrix = io.getMatrix();
+        int[][] adjMatrix = io.fileToMatrix();
+        System.out.println("Adjancey Matrix: ");
         print2DArray(adjMatrix);
-        io.printToFile(adjMatrix, "Adjency Matrix: ");
-
         System.out.println();
 
         FloydsAlgo fAlgo = new FloydsAlgo(adjMatrix);
         PairsMatricies pMatricies = fAlgo.getPMatrices();
 
         int pMSizes = pMatricies.getTotalMatricies();
+        int[][] shortestPathsMatrix = fAlgo.getShortestPathsMatrix();
 
+        System.out.println("Inter Matricies from calculations: ");
         for (int i = 0; i < pMSizes; i++) {
             print2DArray(pMatricies.getMatrix(i));
             System.out.println();
@@ -35,8 +35,8 @@ public class Main {
                 d = 3;
 
         System.out.println();
-        System.out.println("Shortest Distance between D and C: ");
-        System.out.println(fAlgo.shortestDistance(d, c));
+        System.out.println("(Test) Shortest Distance between D and C: ");
+        System.out.println(fAlgo.shortestDistBetweenPoints(d, c));
 
         // =========================
 
@@ -45,18 +45,25 @@ public class Main {
 
         System.out.println();
         System.out.println(" Shortest Pairs Matrix: ");
-        print2DArray(fAlgo.getShortestPathsMatrix());
+        print2DArray(shortestPathsMatrix);
         System.out.println();
 
         // =========================
 
+        io.cleanMatrix(adjMatrix); // Turn MAXN values to -1 for better representation.
+
         // Write out to output file
         // =========================
-        for (int i = 0; i < adjMatrix.length; i++) {
-            io.printToFile(fAlgo.getPMatrices().getMatrix(i), "Matrix " + (1 + i) + ": ");
+
+        io.printToFile(adjMatrix, "Adjency Matrix: ");
+        io.printToFile("\n");
+
+        for (int i = 0; i < pMSizes; i++) {
+            io.printToFile(pMatricies.getMatrix(i), "Matrix " + (1 + i) + ": ");
+            io.printToFile("\n");
         }
 
-        io.printToFile(fAlgo.getShortestPathsMatrix(), "Shortest Path Pairs Matrix: ");
+        io.printToFile(shortestPathsMatrix, "\nShortest Path Pairs Matrix: \na b c d");
         // =========================
     }
 

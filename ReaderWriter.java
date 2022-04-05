@@ -1,25 +1,22 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class FileReader {
+public class ReaderWriter {
     private Scanner in;
     private FileWriter fw;
-    private String inputFile;
-    private String outputFile;
+    private String inputFile, outputFile;
+
+    public ReaderWriter(String inputFile, String outputFile) {
+        this.inputFile = inputFile;
+        this.outputFile = outputFile;
+    }
 
     private int[][] matrix;
     static int MAXN = (int) 1e7;
 
-    public FileReader(String inputFile, String outputFile) {
-        this.inputFile = inputFile;
-        this.outputFile = outputFile;
-        toMatrix();
-    }
-
-    private void toMatrix() {
+    public int[][] fileToMatrix() {
         try {
             in = new Scanner(new File(inputFile));
             // in.useDelimiter(" "); //Change to "," this if the matrix is divided by commas
@@ -38,6 +35,8 @@ public class FileReader {
                 }
 
             in.close();
+            return matrix;
+
         } catch (Exception e) {
             if (e instanceof IllegalArgumentException)
                 System.out.println("Error: \n" + e.getMessage());
@@ -47,13 +46,10 @@ public class FileReader {
                 System.out.println("An Error has occurred");
             }
             e.printStackTrace();
-            // System.exit(1);
+            System.exit(1);
         }
+        return null;
 
-    }
-
-    public int[][] getMatrix() {
-        return matrix;
     }
 
     public void printToFile(int[][] matrix, String message) {
@@ -72,8 +68,45 @@ public class FileReader {
         }
     }
 
+    public void printToFile(String message) {
+        try {
+            fw = new FileWriter(new File(outputFile), true);
+            fw.write(message + "\n");
+            fw.close();
+        } catch (Exception e) {
+            System.out.println("Error writing to file: \n" + e.getMessage());
+
+        }
+    }
+
+    public int[][] cleanMatrix(int[][] m) {
+        int n = m.length,
+                curr = 0;
+
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++) {
+
+                if (m[i][j] == MAXN)
+                    m[i][j] = -1;
+            }
+
+        return matrix;
+    }
+
     public void setInputFile(String inputFile) {
         this.inputFile = inputFile;
-        toMatrix();
     }
+
+    public String getInputFile() {
+        return inputFile;
+    }
+
+    public void setOutputFile(String outputFile) {
+        this.outputFile = outputFile;
+    }
+
+    public String getOutputFile() {
+        return outputFile;
+    }
+
 }

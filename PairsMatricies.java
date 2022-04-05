@@ -1,11 +1,10 @@
 public class PairsMatricies {
     private int[][][] all;
-    private int mCount, mDimension;
+    private int mCount;
     static int MAXN = (int) 1e7;
 
     public PairsMatricies(int mCount) {
         this.mCount = mCount;
-        // this.mDimension = mDimension;
         all = new int[mCount][mCount][mCount]; // Assumes matrices are squared
     }
     // Ex:
