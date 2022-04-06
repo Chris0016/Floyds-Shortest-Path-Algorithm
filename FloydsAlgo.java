@@ -1,7 +1,6 @@
 public class FloydsAlgo {
     private int[][] adjMatrix, shortestPaths; // -1 Represents Infinity
     private int n;
-    private String summary;
     private PairsMatricies pMatricies;
 
     static int MAXN = (int) 1e7;
@@ -43,7 +42,23 @@ public class FloydsAlgo {
      * observed in this small program
      * but rather in larger ones.
      * 
+     *  
+     * Other options considered if use -1 instead. This will make the program
+     * overall slower.
+     * if(pos1 * pos2 < 0)
+     * Math.max(pos1, pos2);
+     * else
+     * Math.min(pos1, pos2);
+     * 
+     * if(pos1 == -1)
+     * item = pos2;
+     * else if (pos2 == -1)
+     * item = pos1;
+     * else
+     * Math.min(pos1, pos2);
+     * 
      */
+     
     private void calculateShortestPairs() {
 
         int item = 0,
@@ -68,42 +83,13 @@ public class FloydsAlgo {
                     // System.out.println("pos: " + k + i + j); //Debug
                     // System.out.println(); //Debug
 
-                    /*
-                     * Other options considered if use -1 instead. This will make the program
-                     * overall slower.
-                     * if(pos1 * pos2 < 0)
-                     * Math.max(pos1, pos2);
-                     * else
-                     * Math.min(pos1, pos2);
-                     * 
-                     * if(pos1 == -1)
-                     * item = pos2;
-                     * else if (pos2 == -1)
-                     * item = pos1;
-                     * else
-                     * Math.min(pos1, pos2);
-                     * 
-                     */
-
                     pMatricies.setItem(k, i, j, item);
                 }
             }
-
             prevMatrix = pMatricies.getMatrix(k);
-
         }
-
         pMatricies.cleanMatrices();
         calcShortDistMatrix();
-    }
-
-    private void calcShortDistMatrix() {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                shortestPaths[i][j] = calcShortDist(i, j);
-            }
-        }
-
     }
 
     private int calcShortDist(int point1, int point2) {
@@ -127,6 +113,15 @@ public class FloydsAlgo {
             min = curr;
 
         return min;
+    }
+
+    private void calcShortDistMatrix() {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                shortestPaths[i][j] = calcShortDist(i, j);
+            }
+        }
+
     }
 
     public int shortestDistBetweenPoints(int point1, int point2) {

@@ -55,16 +55,20 @@ public class Main {
         // Write out to output file
         // =========================
 
-        io.printToFile(adjMatrix, "Adjency Matrix: ");
+        io.matrixToFile(adjMatrix, "Adjency Matrix: ");
         io.printToFile("\n");
 
         io.printToFile("Inner Matrices for Calculations: ");
         for (int i = 0; i < pMSizes; i++) {
+<<<<<<< HEAD
             io.printToFile(pMatricies.getMatrix(i), "matrix " + (1 + i) + ": ");
+=======
+            io.matrixToFile(pMatricies.getMatrix(i), "Matrix " + (1 + i) + ": ");
+>>>>>>> 365ad02db622d9d92ed0d1125c72d3a51367b748
             io.printToFile("\n");
         }
 
-        io.printToFile(shortestPathsMatrix, "\nShortest Path Pairs Matrix: \na b c d");
+        io.matrixToFile(shortestPathsMatrix, "\nShortest Path Pairs Matrix: \na b c d");
         // =========================
     }
 

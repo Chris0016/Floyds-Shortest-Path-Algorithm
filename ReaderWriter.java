@@ -52,7 +52,7 @@ public class ReaderWriter {
 
     }
 
-    public void printToFile(int[][] matrix, String message) {
+    public void matrixToFile(int[][] matrix, String message) {
         try {
             fw = new FileWriter(new File(outputFile), true);
             fw.write(message + "\n");
@@ -95,6 +95,7 @@ public class ReaderWriter {
 
     public void setInputFile(String inputFile) {
         this.inputFile = inputFile;
+        matrix = null;
     }
 
     public String getInputFile() {
