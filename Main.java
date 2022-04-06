@@ -55,15 +55,15 @@ public class Main {
         // Write out to output file
         // =========================
 
-        io.printToFile(adjMatrix, "Adjency Matrix: ");
+        io.matrixToFile(adjMatrix, "Adjency Matrix: ");
         io.printToFile("\n");
 
         for (int i = 0; i < pMSizes; i++) {
-            io.printToFile(pMatricies.getMatrix(i), "Matrix " + (1 + i) + ": ");
+            io.matrixToFile(pMatricies.getMatrix(i), "Matrix " + (1 + i) + ": ");
             io.printToFile("\n");
         }
 
-        io.printToFile(shortestPathsMatrix, "\nShortest Path Pairs Matrix: \na b c d");
+        io.matrixToFile(shortestPathsMatrix, "\nShortest Path Pairs Matrix: \na b c d");
         // =========================
     }
 
