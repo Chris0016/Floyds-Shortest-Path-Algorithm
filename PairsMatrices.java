@@ -1,9 +1,9 @@
-public class PairsMatricies {
+public class PairsMatrices {
     private int[][][] all;
     private int mCount;
     static int MAXN = (int) 1e7;
 
-    public PairsMatricies(int mCount) {
+    public PairsMatrices(int mCount) {
         this.mCount = mCount;
         all = new int[mCount][mCount][mCount]; // Assumes matrices are squared
     }

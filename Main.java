@@ -15,7 +15,7 @@ public class Main {
         System.out.println();
 
         FloydsAlgo fAlgo = new FloydsAlgo(adjMatrix);
-        PairsMatricies pMatricies = fAlgo.getPMatrices();
+        PairsMatrices pMatricies = fAlgo.getPMatrices();
 
         int pMSizes = pMatricies.getTotalMatricies();
         int[][] shortestPathsMatrix = fAlgo.getShortestPathsMatrix();
@@ -60,11 +60,9 @@ public class Main {
 
         io.printToFile("Inner Matrices for Calculations: ");
         for (int i = 0; i < pMSizes; i++) {
-<<<<<<< HEAD
-            io.printToFile(pMatricies.getMatrix(i), "matrix " + (1 + i) + ": ");
-=======
+
             io.matrixToFile(pMatricies.getMatrix(i), "Matrix " + (1 + i) + ": ");
->>>>>>> 365ad02db622d9d92ed0d1125c72d3a51367b748
+
             io.printToFile("\n");
         }
 

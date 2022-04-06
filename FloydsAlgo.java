@@ -1,7 +1,7 @@
 public class FloydsAlgo {
     private int[][] adjMatrix, shortestPaths; // -1 Represents Infinity
     private int n;
-    private PairsMatricies pMatricies;
+    private PairsMatrices pMatricies;
 
     static int MAXN = (int) 1e7;
 
@@ -11,7 +11,7 @@ public class FloydsAlgo {
         // Will generate (adjMatrix.length) matricies of dimensions (adjMatrix.length) x
         // (adjMatrix.length).
         n = adjMatrix.length;
-        pMatricies = new PairsMatricies(n);
+        pMatricies = new PairsMatrices(n);
         shortestPaths = new int[n][n];
         calculateShortestPairs();
 
@@ -42,7 +42,7 @@ public class FloydsAlgo {
      * observed in this small program
      * but rather in larger ones.
      * 
-     *  
+     * 
      * Other options considered if use -1 instead. This will make the program
      * overall slower.
      * if(pos1 * pos2 < 0)
@@ -58,7 +58,7 @@ public class FloydsAlgo {
      * Math.min(pos1, pos2);
      * 
      */
-     
+
     private void calculateShortestPairs() {
 
         int item = 0,
@@ -149,7 +149,7 @@ public class FloydsAlgo {
         return shortestPaths;
     }
 
-    public PairsMatricies getPMatrices() {
+    public PairsMatrices getPMatrices() {
         return pMatricies;
     }
 }
