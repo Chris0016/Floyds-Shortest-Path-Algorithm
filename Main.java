@@ -10,7 +10,7 @@ public class Main {
         ReaderWriter io = new ReaderWriter(inputFile, outputFile);
 
         int[][] adjMatrix = io.fileToMatrix();
-        System.out.println("Adjancey Matrix: ");
+        System.out.println("Adjancey Matrix(10000000 represents +INFINITY): ");
         print2DArray(adjMatrix);
         System.out.println();
 
@@ -58,8 +58,9 @@ public class Main {
         io.printToFile(adjMatrix, "Adjency Matrix: ");
         io.printToFile("\n");
 
+        io.printToFile("Inner Matrices for Calculations: ");
         for (int i = 0; i < pMSizes; i++) {
-            io.printToFile(pMatricies.getMatrix(i), "Matrix " + (1 + i) + ": ");
+            io.printToFile(pMatricies.getMatrix(i), "matrix " + (1 + i) + ": ");
             io.printToFile("\n");
         }
 
