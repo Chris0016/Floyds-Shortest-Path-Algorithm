@@ -41,7 +41,7 @@ _Given,_
 
 <br />
 
-_The generated matrcies will be_:
+_The generated matrices will be_:
 ![Generated matrices](./resources/example-inner-matrices.png)
 
 **Source**, [Wikipedia](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
@@ -120,14 +120,25 @@ Another important design decision was to consolidate the intermediary matrices i
 <br />
 
 ## **FloydsAlgo.java**
-
 ---
 
-![FloydsAlgo.java](./resources/code-calcShortDist.png)
+![FloydsAlgo.java](./resources/code-calcShortestPairs.png)
+
+*This function calculates the intermediary path matrices using the PairsMatrices data structure. The data is then sent to the function that calculates the shortest distance matrix.*
+
+<br />
 
 ![FloydsAlgo.java](./resources/code-calcShortDistMatrix.png)
 
-![FloydsAlgo.java](./resources/code-calcShortestPairs.png)
+*Calculate the shortest distance matrix.*
+
+<br />
+
+![FloydsAlgo.java](./resources/code-calcShortDist.png)
+
+*A utility function that calculates the shortest distance between two specific points.*
+
+
 
 <br />
 
@@ -142,10 +153,14 @@ Another important design decision was to consolidate the intermediary matrices i
 <br />
 
 ## **PairMatrices.java**
-
 ---
 
 ![PairMatrices.java](./resources/code-pairsmatrices.png)
+
+*The building block data structure that holds the intermediary matrices. The reasoning behind this class is to provide easier management and access between all the possible matrices generated.*
+
+
+<br />
 
 To view the whole code base please click [here](https://github.com/Chris0016/Floyds-Shortest-Path-Algorithm).
 
