@@ -1,4 +1,4 @@
-# Floyds Algorigthm
+# **Floyds Algorigthm**
 
 ### Authors: _Christopher Perez_ and _Thomas Malachi_
 
@@ -13,7 +13,7 @@ As currently implemented this algorithm runs in O(n^3).
 
 The algorithm is implemented using dynamic programming.
 
-## History
+## **History**
 
 ---
 
@@ -22,7 +22,7 @@ The Floyd-Warshall algorithm was established in 1962 by Robert Floyd based on co
 <br />
 <br />
 
-## How it works
+## **How It Works**
 
 ---
 
@@ -66,7 +66,7 @@ let dist be a |V| × |V| array of minimum distances initialized to ∞ (infinity
 
 **Source**, [Wikipedia](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
-## Analysis
+## **Analysis**
 
 ---
 
@@ -76,7 +76,7 @@ If '_generating all the possible outcomes_' already sounded off some alarms as a
 
 This algorithm has a worst-case run-time complexity of O(n^3). As it can be seen from the pseudocode, the program implements three loops nested within one another that each run for the number of nodes in the graph (or |V|). This essentially means that as the number of nodes(n) grows the number of computations the algorithm has to do increases at a cubic rate(n^3). Hence, this ultimately means that the algorithm does not scale efficiently because of its very high computational costs.
 
-## Code
+## **Code**
 
 ---
 
@@ -115,12 +115,12 @@ Another important design decision was to consolidate the intermediary matrices i
 
 <br />
 
-### Below is a guide with code showing the implementation details of the critical functions,
-
+### **Critical Functions**
+---
 <br />
 
-## **FloydsAlgo.java**
----
+### **FloydsAlgo.java**
+
 
 ![FloydsAlgo.java](./resources/code-calcShortestPairs.png)
 
@@ -142,7 +142,7 @@ Another important design decision was to consolidate the intermediary matrices i
 
 <br />
 
-## **ReaderWriter.java**
+### **ReaderWriter.java**
 
 ---
 
@@ -152,7 +152,7 @@ Another important design decision was to consolidate the intermediary matrices i
 
 <br />
 
-## **PairMatrices.java**
+### **PairMatrices.java**
 ---
 
 ![PairMatrices.java](./resources/code-pairsmatrices.png)
@@ -162,6 +162,13 @@ Another important design decision was to consolidate the intermediary matrices i
 
 <br />
 
+### **How to Run:**
+Make sure that the input/output files are in the IO folder and the IO folder is in the same directory as Main.java. 
+
+    > javaC ReaderWriter.java PairsMatricies.java FloydsAlgo.java
+    
+    > java Main.java
+<br />
 To view the whole code base please click [here](https://github.com/Chris0016/Floyds-Shortest-Path-Algorithm).
 
 Thanks for reading.
