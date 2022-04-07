@@ -116,29 +116,33 @@ Another important design decision was to consolidate the intermediary matrices i
 <br />
 
 ### **Critical Functions**
+
 ---
+
 <br />
 
 ### **FloydsAlgo.java**
 
+![FloydsAlgo.java](./resources/code-calcPathMatrices.png)
 
-![FloydsAlgo.java](./resources/code-calcShortestPairs.png)
-
-*This function calculates the intermediary path matrices using the PairsMatrices data structure. The data is then sent to the function that calculates the shortest distance matrix.*
+_This function calculates the intermediary path matrices using the PairsMatrices data structure. The data is then sent to the function that calculates the shortest distance matrix._
 
 <br />
 
 ![FloydsAlgo.java](./resources/code-calcShortDistMatrix.png)
 
-*Calculate the shortest distance matrix.*
+_Calculate the shortest distance matrix._
 
 <br />
 
 ![FloydsAlgo.java](./resources/code-calcShortDist.png)
 
-*A utility function that calculates the shortest distance between two specific points.*
+_A utility function that calculates the shortest distance between two specific points._
 
+<br />
 
+![Check and run functions](./resources/code-checkAndRun-Functions.png)
+_The collection of functions responsible for checking if the given input is valid and then running the algorithm._
 
 <br />
 
@@ -153,21 +157,23 @@ Another important design decision was to consolidate the intermediary matrices i
 <br />
 
 ### **PairMatrices.java**
+
 ---
 
-![PairMatrices.java](./resources/code-pairsmatrices.png)
+![PairMatrices.java](./resources/code-PathMatrices-class.png)
 
-*The building block data structure that holds the intermediary matrices. The reasoning behind this class is to provide easier management and access between all the possible matrices generated.*
-
+_The building block data structure that holds the intermediary matrices. The reasoning behind this class is to provide easier management and access between all the possible matrices generated._
 
 <br />
 
 ### **How to Run:**
-Make sure that the input/output files are in the IO folder and the IO folder is in the same directory as Main.java. 
+
+Make sure that the input/output files are in the IO folder and the IO folder is in the same directory as Main.java.
 
     > javaC ReaderWriter.java PairsMatricies.java FloydsAlgo.java
-    
+
     > java Main.java
+
 <br />
 
 To view the whole code base please click [here](https://github.com/Chris0016/Floyds-Shortest-Path-Algorithm).

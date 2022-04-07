@@ -26,7 +26,9 @@ public class FloydsAlgo {
     }
 
     private boolean isValidMatrix(int[][] adjMatrix) {
-        return (adjMatrix != null) && !isJaggedArray(adjMatrix) && (adjMatrix.length == adjMatrix[0].length);
+        return (adjMatrix != null)
+                && !isJaggedArray(adjMatrix)
+                && (adjMatrix.length == adjMatrix[0].length);
         // Check subarrays are of same length as the number of subarrays.
     }
 
@@ -116,8 +118,6 @@ public class FloydsAlgo {
             }
             prevMatrix = pMatricies.getMatrix(k);
         }
-        pMatricies.cleanMatrices();
-        calcShortDistMatrix();
     }
 
     private int calcShortDist(int point1, int point2) {
