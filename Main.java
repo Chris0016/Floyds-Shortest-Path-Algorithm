@@ -10,15 +10,15 @@ public class Main {
         ReaderWriter io = new ReaderWriter(inputFile, outputFile);
 
         int[][] adjMatrix = io.fileToMatrix();
-        System.out.println("Adjancey Matrix(10000000 represents +INFINITY): ");
+        System.out.println("Adjancency Matrix(10000000 represents +INFINITY): ");
         print2DArray(adjMatrix);
         System.out.println();
 
         FloydsAlgo fAlgo = new FloydsAlgo(adjMatrix);
-        PairsMatrices pMatricies = fAlgo.getPMatrices();
+        PathMatrices pMatricies = fAlgo.getPMatrices();
 
         int pMSizes = pMatricies.getTotalMatricies();
-        int[][] shortestPathsMatrix = fAlgo.getShortestPathsMatrix();
+        int[][] shortestPathsMatrix = fAlgo.getShortestPathMatrix();
 
         System.out.println("Inter Matricies from calculations: ");
         for (int i = 0; i < pMSizes; i++) {

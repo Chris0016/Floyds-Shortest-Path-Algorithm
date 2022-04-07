@@ -1,20 +1,48 @@
 public class FloydsAlgo {
-    private int[][] adjMatrix, shortestPaths; // -1 Represents Infinity
+    private int[][] adjMatrix, shortestPathMatrix; // -1 Represents Infinity
     private int n;
-    private PairsMatrices pMatricies;
+    private PathMatrices pMatricies;
 
     static int MAXN = (int) 1e7;
 
     public FloydsAlgo(int[][] adjMatrix) {
+
+        setAdjMatrix(adjMatrix); // Checks for a valid matrix and runs algorithm as well.
+
+    }
+
+    public void setAdjMatrix(int[][] adjMatrix) {
+        if (!isValidMatrix(adjMatrix)) {
+            System.out.println("Invalid matrix given. Cannot perform calculation.");
+            return;
+        }
+
         this.adjMatrix = adjMatrix;
-
-        // Will generate (adjMatrix.length) matricies of dimensions (adjMatrix.length) x
-        // (adjMatrix.length).
         n = adjMatrix.length;
-        pMatricies = new PairsMatrices(n);
-        shortestPaths = new int[n][n];
-        calculateShortestPairs();
+        pMatricies = new PathMatrices(n);
+        shortestPathMatrix = new int[n][n];
+        runAlgo();
 
+    }
+
+    private boolean isValidMatrix(int[][] adjMatrix) {
+        return (adjMatrix != null) && !isJaggedArray(adjMatrix) && (adjMatrix.length == adjMatrix[0].length);
+        // Check subarrays are of same length as the number of subarrays.
+    }
+
+    private boolean isJaggedArray(int[][] arr) {
+        int n = arr[0].length;
+        for (int[] e : arr)
+            if (e.length != n)
+                return true;
+
+        return false;
+    }
+
+    private void runAlgo() {
+        calcPathMatrices();
+        pMatricies.cleanMatrices();
+        calcShortDistMatrix();
     }
 
     /*
@@ -33,7 +61,7 @@ public class FloydsAlgo {
      * between -1 and MAXN and back to -1
      * 
      * Using MAXN:
-     * Less comparisons in calculateShortestPairs() <- runs in O(n^3)
+     * Less comparisons in calcPathMatrices() <- runs in O(n^3)
      * 
      * 
      * Conclusion: Although redundant, representing infinity as MAXN instead of -1
@@ -59,7 +87,7 @@ public class FloydsAlgo {
      * 
      */
 
-    private void calculateShortestPairs() {
+    private void calcPathMatrices() {
 
         int item = 0,
                 pos1,
@@ -118,7 +146,7 @@ public class FloydsAlgo {
     private void calcShortDistMatrix() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                shortestPaths[i][j] = calcShortDist(i, j);
+                shortestPathMatrix[i][j] = calcShortDist(i, j);
             }
         }
 
@@ -145,11 +173,11 @@ public class FloydsAlgo {
     // return summary;
     // }
 
-    public int[][] getShortestPathsMatrix() {
-        return shortestPaths;
+    public int[][] getShortestPathMatrix() {
+        return shortestPathMatrix;
     }
 
-    public PairsMatrices getPMatrices() {
+    public PathMatrices getPMatrices() {
         return pMatricies;
     }
 }
