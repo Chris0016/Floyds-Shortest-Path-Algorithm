@@ -1,6 +1,6 @@
 # **Floyds Algorigthm**
 
-### Authors: _Christopher Perez_ and _Thomas Malachi_
+### Author: _Christopher Perez_
 
 <br />
 The Floyd-Warshall algorithm is an algorithm for finding the shortest paths from every point to another within a weighted graph. This algorithm works upon the condition that the graph does not have any negative cycles.
